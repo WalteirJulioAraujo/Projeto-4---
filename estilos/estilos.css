@@ -26,4 +26,16 @@ body{
     border-radius: 5px;
     background-color: #A7E9AF;
     border: 1px solid #99ceab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartas img{
+    width: 80px;
+    height: 80px;
+}
+
+.imgescondido{
+    display: none;
 }
