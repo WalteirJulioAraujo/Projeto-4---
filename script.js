@@ -1,12 +1,25 @@
 
-//let numerocartas = prompt("qual o numero de cartas?");
-numerocartas=10;
+let numerocartas = prompt("qual o numero de cartas?");
+
 let testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
 
 while(testecartas){
     numerocartas = prompt("qual o numero de cartas?");
     testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
 }
+
+const tabuleirodecartas = document.querySelector(".cartas");
+const margincarta = document.querySelector(".carta")
+if(numerocartas==8){
+    tabuleirodecartas.style.width = "670px";
+}else if(numerocartas==10){
+    tabuleirodecartas.style.width = "870px";
+}else if(numerocartas==12){
+    tabuleirodecartas.style.width = "1070px";
+}else if(numerocartas==14){
+    tabuleirodecartas.style.width = "1200px";
+}
+
 
 let tempo = 0;
 let idtime = 0;

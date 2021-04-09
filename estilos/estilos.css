@@ -16,6 +16,7 @@ body{
     width: fit-content;
     flex-wrap: wrap;
     margin: 0 auto;
+    padding-left: 34px;
 }
 
 .carta{
