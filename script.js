@@ -11,13 +11,13 @@ while(testecartas){
 const tabuleirodecartas = document.querySelector(".cartas");
 const margincarta = document.querySelector(".carta")
 if(numerocartas==8){
-    tabuleirodecartas.style.width = "670px";
+    tabuleirodecartas.style.width = "638px";
 }else if(numerocartas==10){
-    tabuleirodecartas.style.width = "870px";
+    tabuleirodecartas.style.width = "789px";
 }else if(numerocartas==12){
-    tabuleirodecartas.style.width = "1070px";
+    tabuleirodecartas.style.width = "906px";
 }else if(numerocartas==14){
-    tabuleirodecartas.style.width = "1200px";
+    tabuleirodecartas.style.width = "1057px";
 }
 
 
@@ -28,7 +28,7 @@ function timer(){
     tempo++;
     temporizador.innerHTML = tempo;
 }
-//idtime=setInterval(timer,1000);
+idtime=setInterval(timer,1000);
 
 const imagens = ['Imagens/bobrossparrot.gif','Imagens/explodyparrot.gif','Imagens/fiestaparrot.gif','Imagens/metalparrot.gif','Imagens/revertitparrot.gif','Imagens/tripletsparrot.gif','Imagens/unicornparrot.gif'];
 imagens.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
@@ -86,6 +86,7 @@ function vencer(){
     if(contadorpares === paresvitoria){
         alert(`Você venceu com ${jogadas} jogadas e em ${tempo} segundos!`);
         clearInterval(idtime);
+        reiniciar();
     }
 }
 
@@ -102,4 +103,19 @@ function Desvira(elementoClicado,ultimacarta){
 // Funcao que embaralha
 function comparador() { 
 	return Math.random() - 0.5; 
+}
+
+function reiniciar(){
+    const resposta = prompt("Gostaria de jogar novamente?(Responda sim ou não)");
+    const fimdejogo = document.querySelector(".cartas");
+    if(resposta == "sim" || resposta == "Sim"){
+        location.reload();
+    } else if( resposta == "não" ||resposta == "nao" ||resposta == "Não" || resposta == "Nao" ) {
+        setTimeout(alert,300,"Muito Obrigado por jogar");
+        for(let i = 0; i < numerocartas;i++){
+            fimdejogo.removeChild(fimdejogo.firstChild);
+        }
+        fimdejogo.classList.add("fimdejogo");
+        fimdejogo.innerHTML = "Fim de Jogo";
+    }
 }
