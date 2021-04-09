@@ -29,6 +29,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
 
 .cartas img{
@@ -40,3 +42,6 @@ body{
     display: none;
 }
 
+.rotacionar{
+    transform: rotateY(180deg);
+}
