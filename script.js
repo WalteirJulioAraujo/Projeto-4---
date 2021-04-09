@@ -1,6 +1,4 @@
-// Testando o numero de cartas
 
-// let numerocartas = prompt("qual o numero de cartas?");
 let numerocartas = 4;
 
 let testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
@@ -9,8 +7,6 @@ while(testecartas){
     numerocartas = prompt("qual o numero de cartas?");
     testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
 }
-
-// Criando array com as imagens
 
 const imagens = ['Imagens/bobrossparrot.gif','Imagens/explodyparrot.gif','Imagens/fiestaparrot.gif','Imagens/metalparrot.gif','Imagens/revertitparrot.gif','Imagens/tripletsparrot.gif','Imagens/unicornparrot.gif'];
 imagens.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
@@ -24,7 +20,6 @@ for(let i = 0; i < (numerocartas/2); i++){
 
 let totaldecartas = metadecartas1.concat(metadecartas2);
 
-// Embaralhando as arrays
 totaldecartas.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
 
 let qtdecartas = document.querySelector(".cartas");
@@ -53,9 +48,9 @@ function virarcarta(elementoClicado){
         elementoClicado.querySelector(".gifs").classList.remove("esconder");
 
         if(ultimacarta.classList.value === elementoClicado.classList.value){
-            console.log("igual");
             contadorpares++;
-            
+            ultimacarta.removeAttribute("onclick");
+            elementoClicado.removeAttribute("onclick");
         } else {
             setTimeout(Desvira,1000,elementoClicado,ultimacarta);
         }
@@ -76,6 +71,7 @@ function Desvira(elementoClicado,ultimacarta){
     ultimacarta.querySelector(".gifs").classList.add("esconder");
     elementoClicado.querySelector(".costa-carta").classList.remove("esconder");
     elementoClicado.querySelector(".gifs").classList.add("esconder");
+
     elementoClicado.classList.remove("rotacionar");
     ultimacarta.classList.remove("rotacionar");
 }
