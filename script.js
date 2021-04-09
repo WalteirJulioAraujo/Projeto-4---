@@ -33,8 +33,7 @@ function timer(){
 idtime=setInterval(timer,1000);
 
 const imagens = ['Imagens/bobrossparrot.gif','Imagens/explodyparrot.gif','Imagens/fiestaparrot.gif','Imagens/metalparrot.gif','Imagens/revertitparrot.gif','Imagens/tripletsparrot.gif','Imagens/unicornparrot.gif'];
-imagens.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
-
+imagens.sort(comparador); 
 let metadecartas1=[];
 let metadecartas2=[];
 for(let i = 0; i < (numerocartas/2); i++){
@@ -44,7 +43,7 @@ for(let i = 0; i < (numerocartas/2); i++){
 
 let totaldecartas = metadecartas1.concat(metadecartas2);
 
-totaldecartas.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
+totaldecartas.sort(comparador); 
 
 let qtdecartas = document.querySelector(".cartas");
 for(let i = 0; i < numerocartas; i++){
@@ -105,7 +104,6 @@ function Desvira(elementoClicado,ultimacarta){
     ultimacarta.setAttribute("onclick","virarcarta(this)");
 }
 
-// Funcao que embaralha
 function comparador() { 
 	return Math.random() - 0.5; 
 }
