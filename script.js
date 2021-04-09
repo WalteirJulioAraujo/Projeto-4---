@@ -62,6 +62,7 @@ function virarcarta(elementoClicado){
         ultimacarta = elementoClicado;
         ultimacarta.querySelector(".costa-carta").classList.add("esconder");
         ultimacarta.querySelector(".gifs").classList.remove("esconder");
+        ultimacarta.removeAttribute("onclick");
         jogadas++;
 
     }else{
@@ -100,6 +101,8 @@ function Desvira(elementoClicado,ultimacarta){
 
     elementoClicado.classList.remove("rotacionar");
     ultimacarta.classList.remove("rotacionar");
+
+    ultimacarta.setAttribute("onclick","virarcarta(this)");
 }
 
 // Funcao que embaralha
