@@ -15,15 +15,26 @@ while(testecartas){
 const imagens = ['Imagens/bobrossparrot.gif','Imagens/explodyparrot.gif','Imagens/fiestaparrot.gif','Imagens/metalparrot.gif','Imagens/revertitparrot.gif','Imagens/tripletsparrot.gif','Imagens/unicornparrot.gif'];
 // const todascartas2 = [`<div class="carta carta1" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[0]} class="gifs esconder"></div>`,`<div class="carta carta2" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[1]} class="gifs esconder"></div>`,`<div class="carta carta3" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[2]} class="gifs esconder"></div>`,`<div class="carta carta4" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[3]} class="gifs esconder"></div>`,`<div class="carta carta5" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[4]} class="gifs esconder"></div>`,`<div class="carta carta6" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[5]} class="gifs esconder"></div>`,`<div class="carta carta7" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[6]} class="gifs esconder"></div>`];
 
-let todascartas=[];
-for(let i = 0; i < 7; i++){
-    todascartas.push(`<div class="carta carta${i}" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[i]} class="gifs esconder"></div>`)
+let metadecartas1=[];
+let metadecartas2=[];
+for(let i = 0; i < (numerocartas/2); i++){
+    metadecartas1.push(`<div class="carta carta${i}" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[i]} class="gifs esconder"></div>`);
+    metadecartas2.push(`<div class="carta carta${i}" onclick="virarcarta(this)"><img src="Imagens/front.png" class="costa-carta"><img src=${imagens[i]} class="gifs esconder"></div>`);
 }
-// Adicionando as cartas com imagens unicas duas a duas
+
+// Embaralhando as arrays
+imagens.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
+metadecartas1.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
+metadecartas2.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
 
 let qtdecartas = document.querySelector(".cartas");
-let carta = document.querySelector(".cartas .carta img");
+for(let i = 0; i < numerocartas/2; i++){
+    qtdecartas.innerHTML += `${metadecartas1[i]}`;
+    qtdecartas.innerHTML += `${metadecartas2[i]}`;
+}
 
+
+/* Fiz tentando add duas a duas -Adicionando as cartas com imagens unicas duas a duas
 for(let i = 0; i < numerocartas; i++){
     if(i<2){
         qtdecartas.innerHTML +=`${todascartas[0]}`;
@@ -41,6 +52,7 @@ for(let i = 0; i < numerocartas; i++){
         qtdecartas.innerHTML +=`${todascartas[6]}`;
     }
 }
+*/
 
 let ultimacarta = null;
 let contadorpares = 0; 
@@ -83,11 +95,7 @@ function vencer(){
 }
 
 
-// Embaralhamento
-imagens.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
-todascartas.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
-
-// Esta função pode ficar separada do código acima, onde você preferir
+// Funcao que embaralha
 function comparador() { 
 	return Math.random() - 0.5; 
 }
