@@ -45,3 +45,9 @@ body{
 .rotacionar{
     transform: rotateY(180deg);
 }
+
+.temporizador{
+    font-size: 35px;
+    width: 100%;
+    text-align: center;
+}

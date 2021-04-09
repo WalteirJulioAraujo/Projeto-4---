@@ -1,12 +1,21 @@
 
-let numerocartas = 4;
-
+//let numerocartas = prompt("qual o numero de cartas?");
+numerocartas=10;
 let testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
 
 while(testecartas){
     numerocartas = prompt("qual o numero de cartas?");
     testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
 }
+
+let tempo = 0;
+let idtime = 0;
+let temporizador = document.querySelector(".temporizador");
+function timer(){
+    tempo++;
+    temporizador.innerHTML = tempo;
+}
+//idtime=setInterval(timer,1000);
 
 const imagens = ['Imagens/bobrossparrot.gif','Imagens/explodyparrot.gif','Imagens/fiestaparrot.gif','Imagens/metalparrot.gif','Imagens/revertitparrot.gif','Imagens/tripletsparrot.gif','Imagens/unicornparrot.gif'];
 imagens.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
@@ -57,12 +66,13 @@ function virarcarta(elementoClicado){
         ultimacarta = null;
     }
 
-    setTimeout(vencer,100);
+    setTimeout(vencer,200);
 }
 
 function vencer(){
     if(contadorpares === paresvitoria){
-        alert(`Você venceu com ${jogadas} jogadas!`);
+        alert(`Você venceu com ${jogadas} jogadas e em ${tempo} segundos!`);
+        clearInterval(idtime);
     }
 }
 
