@@ -8,16 +8,18 @@ while(testecartas){
     testecartas = (numerocartas < 4) || (numerocartas > 14) || (numerocartas%2==1);
 }
 
+
 const tabuleirodecartas = document.querySelector(".cartas");
-const margincarta = document.querySelector(".carta")
-if(numerocartas==8){
-    tabuleirodecartas.style.width = "638px";
-}else if(numerocartas==10){
-    tabuleirodecartas.style.width = "789px";
-}else if(numerocartas==12){
-    tabuleirodecartas.style.width = "906px";
-}else if(numerocartas==14){
-    tabuleirodecartas.style.width = "1057px";
+if(window.innerWidth>600){
+    if(numerocartas==8){
+        tabuleirodecartas.style.width = "638px";
+    }else if(numerocartas==10){
+        tabuleirodecartas.style.width = "789px";
+    }else if(numerocartas==12){
+        tabuleirodecartas.style.width = "906px";
+    }else if(numerocartas==14){
+        tabuleirodecartas.style.width = "1057px";
+    }
 }
 
 
@@ -115,6 +117,7 @@ function reiniciar(){
         for(let i = 0; i < numerocartas;i++){
             fimdejogo.removeChild(fimdejogo.firstChild);
         }
+        document.querySelector(".temporizador").innerHTML = "";
         fimdejogo.classList.add("fimdejogo");
         fimdejogo.innerHTML = "Fim de Jogo";
     }
